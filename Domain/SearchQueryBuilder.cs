@@ -24,17 +24,17 @@ namespace myWebApplication.Domain
 			Hash = _settings.AppHash;
 		}
 
-		public Uri GetSearchUri(string userSearch)
-		{
-			Query = userSearch;
-			return new Uri($"{SearchApiUrl}?q={userSearch}&limit=20&token={Token}&hash={Hash}");
-		}
+//		public Uri GetSearchUri(string userSearch)
+//		{
+//			Query = userSearch;
+//			return new Uri($"{SearchApiUrl}?q={userSearch}&limit=20&token={Token}&hash={Hash}");
+//		}
+//
+//		public Uri GetProductUrl(int productId)
+//		{
+//			return new Uri($"{_settings.GetProductUrl}?ids={productId}&token={Token}&hash={Hash}");
+//		}
 
-		public Uri GetProductUrl(int productId)
-		{
-			return new Uri($"{_settings.GetProductUrl}?ids={productId}&token={Token}&hash={Hash}");
-		}
-
-		public ProductSearchResultModel SearchModel { get; set; }
+		//public ProductSearchResultModel SearchModel { get; set; }
 	}
 }

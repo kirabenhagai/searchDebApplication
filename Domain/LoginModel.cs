@@ -14,6 +14,12 @@ namespace myWebApplication.Domain
 
 		public List<ProductModel> ProductModel { get; set; }
 		public List<ProductSearchResultModel> SearchModel { get; set; }
-		public Uri GetProductsUrl => new Uri(SecureApiUrl, $"/products/get?ids=194623649,48634108&token={Token}&hash={Hash}");
+
+//		public Uri GetProductsUrl()
+//		{
+//			return new Uri(SecureApiUrl, $"/products/get?ids=194623649,48634108&token={Token}&hash={Hash}");
+//		}
+
+
 	}
 }
