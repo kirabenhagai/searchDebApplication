@@ -16,6 +16,10 @@
 	border-width: 0.5px;
 }
 
+.product-div {
+	display:inline;
+}
+
 .search-content {
 	height: 40px;
 	width: 5000px;

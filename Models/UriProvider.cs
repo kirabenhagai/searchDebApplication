@@ -11,19 +11,6 @@ namespace myWebApplication.Models
 	{
 		public Uri GetSearchUri(string search, ApplicationSettings settings)
 		{
-
-			//		public Uri GetSearchUri(string userSearch)
-			//		{
-			//			Query = userSearch;
-			//			return new Uri($"{SearchApiUrl}?q={userSearch}&limit=20&token={Token}&hash={Hash}");
-			//		}
-			//
-			//		public Uri GetProductUrl(int productId)
-			//		{
-			//			return new Uri($"{_settings.GetProductUrl}?ids={productId}&token={Token}&hash={Hash}");
-			//		}
-
-			var debug = $"{settings.SearchApiUrl}?q={search}&limit=20&token={settings.AppToken}&hash={settings.AppHash}";
 			return new Uri($"{settings.SearchApiUrl}?q={search}&limit=20&token={settings.AppToken}&hash={settings.AppHash}");
 		}
 

@@ -26,14 +26,12 @@ namespace myWebApplication.Controllers
 
 			ProductSearchResultModel = ProductProvider.SearchProducts(settings, search);
 
-			return View(query);
+			return View();
 		}
 
 		[Route("Search")]
 		public ActionResult Search(string query)
 		{
-			var query1 = new SearchQueryBuilder();
-
 			var searchModel = ProductProvider.SearchProducts(settings, query);
 			return Json(searchModel.Products, JsonRequestBehavior.AllowGet);
 		}
