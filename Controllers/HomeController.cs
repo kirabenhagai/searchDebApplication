@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 using myWebApplication.Api.Products;
 using myWebApplication.Api.Search;
 using myWebApplication.Domain;
+using myWebApplication.Models;
 
 namespace myWebApplication.Controllers
 {
@@ -15,12 +16,13 @@ namespace myWebApplication.Controllers
 	{
 		public LoginModel LoginModel { get; set; }
 
+		public ProductProvider ProductProvider = new ProductProvider();
 		[Route("Index")]
 		public ActionResult Index(string search="tv")
 		{
 			var query = new SearchQueryBuilder();
 
-			query.SearchModel = SearchProducts(search, query);
+			query.SearchModel = ProductProvider.SearchProducts(search, query);
 
 			return View(query);
 		}
@@ -30,27 +32,8 @@ namespace myWebApplication.Controllers
 		{
 			var searchQueryBuilder = new SearchQueryBuilder();
 
-			var searchModel = SearchProducts(query, searchQueryBuilder);
+			var searchModel = ProductProvider.SearchProducts(query, searchQueryBuilder);
 			return Json(searchModel.Products, JsonRequestBehavior.AllowGet);
-		}
-
-		private ProductSearchResultModel SearchProducts(string inputSearchString, SearchQueryBuilder searchQueryBuilder)
-		{
-			using (WebClient client = new WebClient())
-			{
-				var json = client.DownloadString(searchQueryBuilder.GetSearchUri(inputSearchString));
-				return JsonConvert.DeserializeObject<ProductSearchResultModel>(json);
-			}
-		}
-
-		private ProductModel GetProduct(int productId, SearchQueryBuilder searchQueryBuilder)
-		{
-			using (WebClient client = new WebClient())
-			{
-				var json = client.DownloadString(searchQueryBuilder.GetProductUrl(productId));
-				var list = JsonConvert.DeserializeObject<IList<ProductModel>>(json);
-				return list.Single();
-			}
 		}
 
 		[Route("Product")]
@@ -58,7 +41,7 @@ namespace myWebApplication.Controllers
 		{
 			var query = new SearchQueryBuilder();
 
-			var productResult = GetProduct(product, query);
+			var productResult = ProductProvider.GetProduct(product, query);
 
 			return View(productResult);
 		}

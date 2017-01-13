@@ -78,5 +78,4 @@ c:\users\kira\documents\visual studio 2015\Projects\myWebApplication\myWebApplic
 c:\users\kira\documents\visual studio 2015\Projects\myWebApplication\myWebApplication\bin\Microsoft.AI.Web.xml
 c:\users\kira\documents\visual studio 2015\Projects\myWebApplication\myWebApplication\bin\Microsoft.AI.WindowsServer.xml
 c:\users\kira\documents\visual studio 2015\Projects\myWebApplication\myWebApplication\bin\Microsoft.ApplicationInsights.xml
-C:\Users\kira\Documents\Visual Studio 2015\Projects\myWebApplication\myWebApplication\obj\Debug\myWebApplication.csprojResolveAssemblyReference.cache
 C:\Users\kira\Documents\Visual Studio 2015\Projects\myWebApplication\myWebApplication\bin\Newtonsoft.Json.dll
