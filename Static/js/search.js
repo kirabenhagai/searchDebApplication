@@ -6,15 +6,17 @@
 				var items = [];
 				$.each(data,
 					function (key, val) {
-						items.push('<div class="product-div"><a href="./Product?product=' +
-							val.Id +
-							'" target="_blank"><img class="some-name" src="' +
-							val.ImageUrl +
-							'" alt="" style="width: 190px; height: 190px"><span>Name: ' +
-							val.Name +
-							'</span><span>Price: ' +
-							val.Price +
-							'</span></a></div>');
+						
+						items.push('<div class="product-div">' +
+								'<a href="./home/Product?product=' + val.Id +'" target="_blank">' +
+									'<div class="product-properties"> <img class="some-name" src="' + val.ImageUrl +
+										'" alt="" style="width: 190px; height: 190px">' +
+										'<span><br>Name: ' +
+										val.Name +
+										'</span>' +
+										'<span><br>Price: ' +
+										val.Price +
+										'</span></div></a></div>');
 					});
 				$('#search-result').html(items.join(""));
 			}).error(function(err) {
