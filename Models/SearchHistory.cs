@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace KirasShop.Models
+namespace myWebApplication.Models
 {
 	public class SearchHistory
 	{
