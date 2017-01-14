@@ -8,26 +8,32 @@ using System.Web;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Cfg.MappingSchema;
+using NHibernate.Criterion;
 using NHibernate.Mapping.ByCode;
 
 namespace myWebApplication.Models
 {
 	public class SearchHistoryProvider
 	{
-		public IEnumerable<SearchHistory> GetHistory()
+		public SearchHistoryList GetHistory()
 		{
-			var configuration = new Configuration();
-			configuration.Configure();
-			var mapper = new ModelMapper();
-			mapper.AddMappings(Assembly.GetExecutingAssembly().GetExportedTypes());
-			HbmMapping mapping = mapper.CompileMappingForAllExplicitlyAddedEntities();
-			configuration.AddMapping(mapping);
-
-			ISessionFactory sessionFactory = configuration.BuildSessionFactory();
-			using (ISession session = sessionFactory.OpenSession())
+			using (ISession session = NHibernateHelper.OpenSession())
 			{
-				var searchHistory = session.CreateCriteria<SearchHistory>().List<SearchHistory>();
-				return searchHistory;
+				var searchHistory = session.CreateCriteria<SearchHistory>().AddOrder(Order.Desc("Time")).SetMaxResults(5).List<SearchHistory>();
+				return new SearchHistoryList(searchHistory);
+			}
+		}
+
+		public void AddToHistory(string query)
+		{
+			using (ISession session = NHibernateHelper.OpenSession())
+			{
+				using (ITransaction trans = session.BeginTransaction())
+				{
+					var searchHistory = new SearchHistory() {SearchTerm = query, Time = DateTime.Now};
+					session.SaveOrUpdate(searchHistory);
+					trans.Commit();
+				}
 			}
 		}
 	}

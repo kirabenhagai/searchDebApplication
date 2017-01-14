@@ -33,6 +33,8 @@ namespace myWebApplication.Controllers
 		public ActionResult Search(string query)
 		{
 			var searchModel = ProductProvider.SearchProducts(settings, query);
+			var searchHistoryProvider = new SearchHistoryProvider();
+			searchHistoryProvider.AddToHistory(query);
 			return Json(searchModel.Products, JsonRequestBehavior.AllowGet);
 		}
 
@@ -46,6 +48,16 @@ namespace myWebApplication.Controllers
 			return View(productResult);
 		}
 
+		[Route("SearchHistoryList")]
+		public ActionResult SearchHistoryList()
+		{
+			var searchHistoryProvider = new SearchHistoryProvider();
+
+			var searchHistoryResult = searchHistoryProvider.GetHistory();
+
+			return View(searchHistoryResult);
+		}
+
 		[Route("SearchHistory")]
 		public ActionResult SearchHistory()
 		{
@@ -53,7 +65,7 @@ namespace myWebApplication.Controllers
 
 			var searchHistoryResult = searchHistoryProvider.GetHistory();
 
-			return View(searchHistoryResult.First());
+			return Json(searchHistoryResult.Histories, JsonRequestBehavior.AllowGet);
 		}
 
 	}

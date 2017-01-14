@@ -226,8 +226,10 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\NHibernateHelper.cs" />
     <Compile Include="Models\ProductProvider.cs" />
     <Compile Include="Models\SearchHistory.cs" />
+    <Compile Include="Models\SearchHistoryList.cs" />
     <Compile Include="Models\SearchHistoryMapping.cs" />
     <Compile Include="Models\SearchHistoryProvider.cs" />
     <Compile Include="Models\UriProvider.cs" />
@@ -297,6 +299,7 @@
     <Content Include="Static\css\search.css" />
     <Content Include="Views\Home\Product.cshtml" />
     <Content Include="Views\Home\SearchHistory.cshtml" />
+    <Content Include="Views\Home\SearchHistoryList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
