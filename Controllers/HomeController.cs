@@ -46,5 +46,15 @@ namespace myWebApplication.Controllers
 			return View(productResult);
 		}
 
+		[Route("SearchHistory")]
+		public ActionResult SearchHistory()
+		{
+			var searchHistoryProvider = new SearchHistoryProvider();
+
+			var searchHistoryResult = searchHistoryProvider.GetHistory();
+
+			return View(searchHistoryResult.First());
+		}
+
 	}
 }
