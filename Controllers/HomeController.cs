@@ -33,8 +33,16 @@ namespace myWebApplication.Controllers
 		public ActionResult Search(string query)
 		{
 			var searchModel = ProductProvider.SearchProducts(settings, query);
+			do
+			{
+				searchModel = ProductProvider.SearchProducts(settings, query);
+			}
+			while (searchModel == null);
+
 			var searchHistoryProvider = new SearchHistoryProvider();
+
 			searchHistoryProvider.AddToHistory(query);
+
 			return Json(searchModel.Products, JsonRequestBehavior.AllowGet);
 		}
 
