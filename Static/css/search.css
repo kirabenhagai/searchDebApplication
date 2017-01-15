@@ -17,7 +17,10 @@
 }
 
 .product-properties {
-	display: inline-block
+	display: inline-block;
+	border: 1px solid black;
+	padding: 0.1px;
+	margin: 0.5px;
 }
 
 .product-div {
@@ -27,6 +30,9 @@
 .search-content {
 	height: 40px;
 	width: 5000px;
+}
+
+.all-search-result {
 }
 
 /* Set padding to keep content from hitting the edges */
