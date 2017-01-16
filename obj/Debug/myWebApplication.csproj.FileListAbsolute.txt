@@ -87,4 +87,3 @@ C:\Users\kira\Documents\Visual Studio 2015\Projects\myWebApplication\myWebApplic
 C:\Users\kira\Documents\Visual Studio 2015\Projects\myWebApplication\myWebApplication\bin\System.Runtime.InteropServices.RuntimeInformation.dll
 C:\Users\kira\Documents\Visual Studio 2015\Projects\myWebApplication\myWebApplication\bin\Google.Protobuf.xml
 C:\Users\kira\Documents\Visual Studio 2015\Projects\myWebApplication\myWebApplication\bin\MySql.Data.dll
-C:\Users\kira\Documents\Visual Studio 2015\Projects\myWebApplication\myWebApplication\obj\Debug\myWebApplication.csprojResolveAssemblyReference.cache

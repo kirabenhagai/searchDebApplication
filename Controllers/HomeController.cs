@@ -14,7 +14,6 @@ namespace myWebApplication.Controllers
 {
 	public class HomeController : Controller
 	{
-		public LoginModel LoginModel { get; set; }
 		public ApplicationSettings settings = new ApplicationSettings();
 		public ProductProvider ProductProvider = new ProductProvider();
 		public ProductSearchResultModel ProductSearchResultModel { get; set; }
