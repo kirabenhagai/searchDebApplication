@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Security.Policy;
-using myWebApplication.Api.Search;
 using myWebApplication.Configurations;
 
 namespace myWebApplication.Domain

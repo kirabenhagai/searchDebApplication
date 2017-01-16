@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Web;
 using myWebApplication.Api.Products;
 using myWebApplication.Api.Search;
 using myWebApplication.Configurations;
-using myWebApplication.Domain;
 using Newtonsoft.Json;
 
-namespace myWebApplication.Models
+namespace myWebApplication.Domain
 {
 	public class ProductProvider
 	{

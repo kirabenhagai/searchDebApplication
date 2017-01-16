@@ -223,12 +223,12 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\NHibernateHelper.cs" />
-    <Compile Include="Models\ProductProvider.cs" />
-    <Compile Include="Models\SearchHistory.cs" />
-    <Compile Include="Models\SearchHistoryList.cs" />
-    <Compile Include="Models\SearchHistoryMapping.cs" />
-    <Compile Include="Models\SearchHistoryProvider.cs" />
+    <Compile Include="Domain\NHibernateHelper.cs" />
+    <Compile Include="Domain\ProductProvider.cs" />
+    <Compile Include="Domain\SearchHistory.cs" />
+    <Compile Include="Domain\SearchHistoryList.cs" />
+    <Compile Include="Domain\SearchHistoryMapping.cs" />
+    <Compile Include="Domain\SearchHistoryProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -236,10 +236,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\SearchHistory.hbm.xml" />
+    <Content Include="Domain\SearchHistory.hbm.xml" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -282,9 +281,6 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />

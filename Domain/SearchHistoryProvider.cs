@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Web;
 using NHibernate;
-using NHibernate.Cfg;
-using NHibernate.Cfg.MappingSchema;
 using NHibernate.Criterion;
-using NHibernate.Mapping.ByCode;
 
-namespace myWebApplication.Models
+namespace myWebApplication.Domain
 {
 	public class SearchHistoryProvider
 	{

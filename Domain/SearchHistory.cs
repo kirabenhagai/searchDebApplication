@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace myWebApplication.Models
+namespace myWebApplication.Domain
 {
 	public class SearchHistory
 	{
