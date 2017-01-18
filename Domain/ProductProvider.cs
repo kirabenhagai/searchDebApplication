@@ -13,7 +13,7 @@ namespace myWebApplication.Domain
 		UriProvider uriProvider = new UriProvider();
 		public ProductSearchResultModel SearchProducts(ApplicationSettings settings, string search)
 		{
-			using (WebClient client = new WebClient())
+			using (var client = new WebClient())
 			{
 				var json = client.DownloadString(uriProvider.GetSearchUri(search, settings));
 				return JsonConvert.DeserializeObject<ProductSearchResultModel>(json);
@@ -22,7 +22,7 @@ namespace myWebApplication.Domain
 
 		public ProductModel GetProduct(int productId, ApplicationSettings settings)
 		{
-			using (WebClient client = new WebClient())
+			using (var client = new WebClient())
 			{
 				var json = client.DownloadString(uriProvider.GetProductUrl(productId, settings));
 				var list = JsonConvert.DeserializeObject<IList<ProductModel>>(json);
