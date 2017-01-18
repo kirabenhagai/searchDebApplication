@@ -14,7 +14,7 @@ namespace myWebApplication.Controllers
 {
 	public class HomeController : Controller
 	{
-		public ApplicationSettings settings = new ApplicationSettings();
+		public ApplicationSettings applicationSettings = new ApplicationSettings();
 		public ProductProvider ProductProvider = new ProductProvider();
 		public ProductSearchResultModel ProductSearchResultModel { get; set; }
 
@@ -23,7 +23,7 @@ namespace myWebApplication.Controllers
 		{
 			var query = new SearchQueryBuilder();
 
-			ProductSearchResultModel = ProductProvider.SearchProducts(settings, search);
+			ProductSearchResultModel = ProductProvider.SearchProducts(applicationSettings, search);
 
 			return View();
 		}
@@ -31,7 +31,7 @@ namespace myWebApplication.Controllers
 		[Route("Search")]
 		public ActionResult Search(string query)
 		{
-			var searchModel = ProductProvider.SearchProducts(settings, query);
+			var searchModel = ProductProvider.SearchProducts(applicationSettings, query);
 			if (searchModel == null)
 				return RedirectToAction("Search", "Home", new { query = "baby" });
 
@@ -47,7 +47,7 @@ namespace myWebApplication.Controllers
 		{
 			var query = new SearchQueryBuilder();
 
-			var productResult = ProductProvider.GetProduct(product, settings);
+			var productResult = ProductProvider.GetProduct(product, applicationSettings);
 
 			return View(productResult);
 		}
@@ -71,6 +71,5 @@ namespace myWebApplication.Controllers
 
 			return Json(searchHistoryResult.Histories, JsonRequestBehavior.AllowGet);
 		}
-
 	}
 }

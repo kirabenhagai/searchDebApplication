@@ -21,6 +21,8 @@
 	border: 1px solid black;
 	padding: 0.1px;
 	margin: 0.5px;
+	max-width: 260px;
+	min-width: 260px;
 }
 
 .product-div {
