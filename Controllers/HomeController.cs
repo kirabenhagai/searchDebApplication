@@ -32,11 +32,8 @@ namespace myWebApplication.Controllers
 		public ActionResult Search(string query)
 		{
 			var searchModel = ProductProvider.SearchProducts(settings, query);
-			do
-			{
-				searchModel = ProductProvider.SearchProducts(settings, query);
-			}
-			while (searchModel == null);
+			if (searchModel == null)
+				return RedirectToAction("Search", "Home", new { query = "baby" });
 
 			var searchHistoryProvider = new SearchHistoryProvider();
 
