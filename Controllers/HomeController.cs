@@ -39,7 +39,8 @@ namespace myWebApplication.Controllers
 
 			searchHistoryProvider.AddToHistory(query);
 
-			return Json(searchModel.Products, JsonRequestBehavior.AllowGet);
+			// return Json(searchModel.Products, JsonRequestBehavior.AllowGet);
+			return PartialView(searchModel.Products);
 		}
 
 		[Route("Product")]

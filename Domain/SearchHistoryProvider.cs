@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using NHibernate;
 using NHibernate.Criterion;
 
@@ -21,6 +23,12 @@ namespace myWebApplication.Domain
 			{
 				using (ITransaction trans = session.BeginTransaction())
 				{
+					var histories = session.CreateCriteria(typeof(SearchHistory))
+						.Add(NHibernate.Criterion.Restrictions.Eq("SearchTerm", query))
+						.List<SearchHistory>();
+					foreach (SearchHistory s in histories)
+						session.Delete(s);
+
 					var searchHistory = new SearchHistory() {SearchTerm = query, Time = DateTime.Now};
 					session.SaveOrUpdate(searchHistory);
 					trans.Commit();

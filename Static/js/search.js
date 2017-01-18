@@ -1,45 +1,41 @@
-﻿$(document).ready(function () {
-	function search() {
-		var query = $("#search-query").val();
-		var results = $.getJSON("/Home/Search?query=" + encodeURI(query),
-			function (data) {
-				var items = [];
-				$.each(data,
-					function (key, val) {
+﻿var enterKeyCode = 13;
+$(document).ready(function () {
+	var scope = $("#baseDiv");
 
-						items.push('<div class="product-div">' +
-								'<a href="./home/Product?product=' + val.Id + '" target="_blank">' +
-									'<div class="product-properties"> <img class="some-name" src="' + val.ImageUrl +
-										'" alt="" style="width: 190px; height: 190px">' +
-										'<span><br>Name: ' +
-										val.Name +
-										'</span>' +
-										'<span><br>Price: ' +
-										val.Price +
-										'</span></div></a></div>');
-					});
-				$('#search-result').html(items.join(""));
+	function search() {
+		var query = scope.find(".search-content").val();
+		if (query == "")
+			return;
+		var results = $.get("/Home/Search?query=" + encodeURI(query),
+			function (data) {
+				$('#search-result').html(data);
+				updateSearchHistory();
 			}).error(function (err) {
 				$('#search-result').html("Error occured while searching your results.");
 			});
-		return false;
 	}
 
-	$("#search-button").click(search);
+	scope.find(".search-button-class").click(search);
+	$("#search-query").on("input", search);
 	$("#search-query").keyup(function (event) {
-		if (event.keyCode == 13) {
-			$("#search-button").click();
+		if (event.keyCode == enterKeyCode) {
+			search();
 		}
 	});
-	$("#search-query")
-		.ready(function (event) {
-			$.getJSON("/Home/SearchHistory", function (data) {
-				var items = [];
-				$.each(data,
-					function (key, val) {
-						var option = $('<option value="' + val.SearchTerm + '"></option>');
-						$('#last-searches').append(option);
-					});
-			});
+
+	function updateSearchHistory() {
+		$.getJSON("/Home/SearchHistory", function (data) {
+			var searches = scope.find(".last-searches");
+			searches.empty();
+			$.each(data,
+				function () {
+					$("<option />", {
+						val: this.SearchTerm,
+						text: this.SearchTerm
+					}).appendTo(searches);
+				});
 		});
+	}
+
+	updateSearchHistory();
 });
